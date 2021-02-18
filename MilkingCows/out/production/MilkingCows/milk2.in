@@ -1,0 +1,41 @@
+/*
+        for (int i = 1; i < N; i++) {
+            if (startTimes[i] <= farmers2.get(farmers2.size() - 1).endTime) {
+                int startime = farmers2.get(farmers2.size() - 1).startTime;
+                int endtime = farmers2.get(farmers2.size() - 1).endTime;
+                farmers2.set(farmers2.size() - 1, new farmer(startime, endtime));
+            }
+        }
+         */
+        /**
+        int highestEnd = endTimes[0];
+        //goes through every element in endTimes
+        for (int i = 0; i < N - 1; i++) {
+            if (startTimes[i + 1] <= endTimes[i]) {
+                int temmaxtime = 0;
+                while (i < N - 1 && startTimes[i + 1] <= endTimes[i]) {
+                    temmaxtime += endTimes[i + 1] - startTimes[i];
+                    i++;
+                }
+                if (temmaxtime > maxtimemilk) {
+                    maxtimemilk = temmaxtime;
+                }
+            }
+        }
+
+        for (int i = 0; i < N - 1; i++) {
+            if ( startTimes[i + 1] > (endTimes[i]) && (startTimes[i + 1] - endTimes[i]) > maxgap && endTimes[i] > highestEnd) {
+                maxgap = startTimes[i + 1] - endTimes[i];
+            }
+            else if (endTimes[i] <= highestEnd) {
+                highestEnd = endTimes[i];
+            }
+            if ( (endTimes[i] - startTimes[i]) > maxtimemilk) {
+                maxtimemilk = endTimes[i] - startTimes[i];
+            }
+        }
+        if (N == 1) {
+            maxgap = 0;
+            maxtimemilk = endTimes[0] - startTimes[0];
+        }
+        */
